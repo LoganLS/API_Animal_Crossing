@@ -15,9 +15,16 @@ class CreateVillagersTable extends Migration
     {
         Schema::create('villagers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->binary('image');
-            $table->text('description');
+            $table->string('code')->nullable();
+            $table->string('name')->nullable();
+            $table->string('url')->nullable();
+            $table->string('image_url')->nullable();
+            $table->string('icon_url')->nullable();
+            $table->string('birthday_month')->nullable();
+            $table->integer('birthday_day')->nullable();
+            $table->text('phrase')->nullable();
+            $table->string('catchphrase')->nullable();
+            $table->string('clothing')->nullable();
             $table->timestamps();
         });
     }

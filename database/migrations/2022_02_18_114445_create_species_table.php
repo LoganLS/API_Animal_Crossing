@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSetFurnituresTable extends Migration
+class CreateSpeciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateSetFurnituresTable extends Migration
      */
     public function up()
     {
-        Schema::create('set_furnitures', function (Blueprint $table) {
+        Schema::create('species', function (Blueprint $table) {
             $table->id();
-            $table->string('label');
+            $table->unsignedBigInteger('lang_id');
+            $table->string('name');
+            $table->foreign('lang_id')
+                ->references('id')
+                ->on('languages')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
             $table->timestamps();
         });
     }
@@ -27,6 +33,6 @@ class CreateSetFurnituresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('set_furnitures');
+        Schema::dropIfExists('species');
     }
 }
