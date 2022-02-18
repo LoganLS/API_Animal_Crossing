@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PersonalitySeeder::class);
         $this->call(SignsSeeder::class);
         $this->call(SpeciesSeeder::class);
+        $this->call(VillagersSeeder::class);
     }
 }
