@@ -96,11 +96,11 @@ class VillagersSeeder extends Seeder
 
         }
         foreach ($villagerBDD['en'] as $villager) {
-            Villagers::create($villager);
+            Villager::create($villager);
         }
 
         foreach ($villagerBDD['fr'] as $villager) {
-            Villagers::create($villager);
+            Villager::create($villager);
         }
     }
 }
