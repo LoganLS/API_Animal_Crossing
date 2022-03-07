@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\LanguageRequest;
+use App\Http\Requests\SignRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class LanguageCrudController
+ * Class SignCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class LanguageCrudController extends CrudController
+class SignCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class LanguageCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Language::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/language');
-        CRUD::setEntityNameStrings('language', 'languages');
+        CRUD::setModel(\App\Models\Sign::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/sign');
+        CRUD::setEntityNameStrings('sign', 'signs');
     }
 
     /**
@@ -39,8 +39,10 @@ class LanguageCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::column('id');
+        CRUD::column('lang_id');
+        CRUD::column('code');
         CRUD::column('name');
-        CRUD::column('label');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -57,10 +59,11 @@ class LanguageCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(LanguageRequest::class);
+        CRUD::setValidation(SignRequest::class);
 
+        CRUD::field('lang_id');
+        CRUD::field('code');
         CRUD::field('name');
-        CRUD::field('label');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

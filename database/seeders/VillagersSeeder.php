@@ -7,8 +7,9 @@ use App\Models\Language;
 use App\Models\Personality;
 use App\Models\Sign;
 use App\Models\Species;
-use App\Models\Villagers;
+use App\Models\Villager;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Collection;
 
 class VillagersSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class VillagersSeeder extends Seeder
      */
     public function run()
     {
-        Villagers::query()->delete();
+        Villager::query()->delete();
         $curl = curl_init();
 
         $nameVillagers = file_get_contents('https://raw.githubusercontent.com/alexislours/translation-sheet-data/master/villagers.json');
@@ -51,7 +52,7 @@ class VillagersSeeder extends Seeder
             ),
         ));
         $villagers = json_decode(curl_exec($curl));
-
+        $villagers = new Collection($villagers);
         foreach ($villagers as $villager) {
             if(!$villager->id == null && !$villager->id == ''){
                 $villagerBDD['en'][$villager->id]['url'] = $villager->url;

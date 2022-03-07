@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Sign extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
+    protected $fillable = [
+        'lang_id',
+        'code',
+        'name',
+    ];
 
     public function lang(): BelongsTo
     {
