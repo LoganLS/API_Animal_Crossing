@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->text('description');
-            $table->foreignId('profile_image_id')->constrained('profile_images');
-            $table->foreignId('set_furniture_id')->constrained('set_furnitures');
+            $table->foreignId('profile_image_id')->nullable()->constrained('profile_images');
+            $table->foreignId('set_furniture_id')->nullable()->constrained('set_furnitures');
             $table->rememberToken();
             $table->timestamps();
         });
