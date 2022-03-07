@@ -17,5 +17,3 @@ use App\Http\Controllers\BadgeController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::apiResource('/badges', BadgeController::class);
