@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BadgeController;
 use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
