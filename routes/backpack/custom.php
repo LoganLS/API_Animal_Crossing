@@ -17,7 +17,7 @@ Route::group([
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
     Route::crud('gender', 'GenderCrudController');
-    Route::crud('language', 'LanguageCrudController');
+    Route::crud('language-data', 'LanguageDataCrudController');
     Route::crud('set-furniture', 'SetFurnitureCrudController');
     Route::crud('user', 'UserCrudController');
     Route::crud('species', 'SpeciesCrudController');

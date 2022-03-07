@@ -19,12 +19,12 @@ class Gender extends Model
 
     public function lang(): BelongsTo
     {
-        return $this->belongsTo(Language::class, 'lang_id');
+        return $this->belongsTo(LanguageData::class, 'lang_id');
     }
 
     static function getGender($lang, $gender, $field = 'gender')
     {
-        return Language::where('name', $lang)
+        return LanguageData::where('name', $lang)
             ->first()
             ->gender()
             ->where($field, $gender)

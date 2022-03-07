@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSignsTable extends Migration
+class CreateLanguagesDataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateSignsTable extends Migration
      */
     public function up()
     {
-        Schema::create('signs', function (Blueprint $table) {
+        Schema::create('languages_data', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('lang_id');
             $table->string('name');
-            $table->foreign('lang_id')
-                ->references('id')
-                ->on('languages_data')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->string('label');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreateSignsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('signs');
+        Schema::dropIfExists('languages_date');
     }
 }

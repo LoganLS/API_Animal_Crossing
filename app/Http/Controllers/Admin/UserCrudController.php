@@ -39,8 +39,11 @@ class UserCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
-        CRUD::column('email');
+        CRUD::field('first_name');
+        CRUD::field('last_name');
+        CRUD::field('username');
+        CRUD::field('description');
+        CRUD::field('email');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -59,7 +62,10 @@ class UserCrudController extends CrudController
     {
         CRUD::setValidation(UserRequest::class);
 
-        CRUD::field('name');
+        CRUD::field('first_name');
+        CRUD::field('last_name');
+        CRUD::field('username');
+        CRUD::field('description');
         CRUD::field('email');
         CRUD::field('password');
 

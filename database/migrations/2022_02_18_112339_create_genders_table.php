@@ -20,7 +20,7 @@ class CreateGendersTable extends Migration
             $table->string('gender');
             $table->foreign('lang_id')
                 ->references('id')
-                ->on('languages')
+                ->on('languages_data')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 

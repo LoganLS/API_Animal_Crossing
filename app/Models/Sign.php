@@ -19,12 +19,12 @@ class Sign extends Model
 
     public function lang(): BelongsTo
     {
-        return $this->belongsTo(Language::class, 'lang_id');
+        return $this->belongsTo(LanguageData::class, 'lang_id');
     }
 
     static function getSign($lang, $sign)
     {
-        return Language::where('name', $lang)
+        return LanguageData::where('name', $lang)
             ->first()
             ->sign()
             ->where('code', $sign)

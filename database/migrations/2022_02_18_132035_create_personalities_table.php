@@ -20,7 +20,7 @@ class CreatePersonalitiesTable extends Migration
             $table->unsignedBigInteger('gender_id');
             $table->foreign('lang_id')
                 ->references('id')
-                ->on('languages')
+                ->on('languages_data')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 

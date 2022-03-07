@@ -19,12 +19,12 @@ class Species extends Model
 
     public function lang(): BelongsTo
     {
-        return $this->belongsTo(Language::class, 'lang_id');
+        return $this->belongsTo(LanguageData::class, 'lang_id');
     }
 
     static function getSpece($lang, $spec)
     {
-        return Language::where('name', $lang)
+        return LanguageData::where('name', $lang)
             ->first()
             ->spece()
             ->where('code', $spec)

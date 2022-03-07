@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Language;
+use App\Models\LanguageData;
 use Illuminate\Database\Seeder;
 
-class LanguageSeeder extends Seeder
+class LanguageDataSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class LanguageSeeder extends Seeder
      */
     public function run()
     {
-        Language::query()->delete();
+        LanguageData::query()->delete();
         $langs = [
             [
                 'name' => 'en',
@@ -26,7 +26,7 @@ class LanguageSeeder extends Seeder
         ];
 
         foreach ($langs as $lang) {
-            Language::create($lang);
+            LanguageData::create($lang);
         }
     }
 }

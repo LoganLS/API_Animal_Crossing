@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Gender;
-use App\Models\Language;
+use App\Models\LanguageData;
 use App\Models\Personality;
 use App\Models\Sign;
 use App\Models\Species;
@@ -67,7 +67,7 @@ class VillagersSeeder extends Seeder
                 $villagerBDD['en'][$villager->id]['birthday_month'] = $villager->birthday_month;
                 $villagerBDD['en'][$villager->id]['birthday_day'] = $villager->birthday_day !== '' ? $villager->birthday_day : null;
                 $villagerBDD['en'][$villager->id]['personality_id'] = Personality::getPersonality('en', substr($villager->personality, 0, 3))->id;
-                $villagerBDD['en'][$villager->id]['lang_id'] = Language::getEn()->id;
+                $villagerBDD['en'][$villager->id]['lang_id'] = LanguageData::getEn()->id;
                 $villagerBDD['en'][$villager->id]['sign_id'] = Sign::getSign('en', substr($villager->sign, 0, 3))->id;
 
                 $villagerBDD['fr'][$villager->id]['url'] = $villager->url;
@@ -82,7 +82,7 @@ class VillagersSeeder extends Seeder
                 $villagerBDD['fr'][$villager->id]['birthday_month'] = $villager->birthday_month;
                 $villagerBDD['fr'][$villager->id]['birthday_day'] = $villager->birthday_day !== '' ? $villager->birthday_day : null;
                 $villagerBDD['fr'][$villager->id]['personality_id'] = Personality::getPersonality('fr', substr($villager->personality, 0, 3))->id;
-                $villagerBDD['fr'][$villager->id]['lang_id'] = Language::getFr()->id;
+                $villagerBDD['fr'][$villager->id]['lang_id'] = LanguageData::getFr()->id;
                 $villagerBDD['fr'][$villager->id]['sign_id'] = Sign::getSign('fr', substr($villager->sign, 0, 3))->id;
             }
         }

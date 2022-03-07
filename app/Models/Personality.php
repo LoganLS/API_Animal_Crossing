@@ -19,7 +19,7 @@ class Personality extends Model
 
     static function getPersonality($lang, $personality)
     {
-        return Language::where('name', $lang)
+        return LanguageData::where('name', $lang)
             ->first()
             ->personality()
             ->where('code', $personality)

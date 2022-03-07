@@ -53,7 +53,7 @@ class Villager extends Model
     */
     public function lang(): BelongsTo
     {
-        return $this->belongsTo(Language::class, 'lang_id');
+        return $this->belongsTo(LanguageData::class, 'lang_id');
     }
 
     public function species(): BelongsTo

@@ -19,7 +19,7 @@ class CreateSpeciesTable extends Migration
             $table->string('name');
             $table->foreign('lang_id')
                 ->references('id')
-                ->on('languages')
+                ->on('languages_data')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
             $table->timestamps();
