@@ -53,8 +53,9 @@ class VillagersSeeder extends Seeder
         ));
         $villagers = json_decode(curl_exec($curl));
         $villagers = new Collection($villagers);
+        dd($villagers);
         foreach ($villagers as $villager) {
-            dd($villager);
+
             if(!$villager->id == null && !$villager->id == ''){
                 $villagerBDD['en'][$villager->id]['url'] = $villager->url;
                 $villagerBDD['en'][$villager->id]['code'] = $villager->id;
