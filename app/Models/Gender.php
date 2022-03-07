@@ -8,7 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Gender extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
+
+    protected $fillable = [
+        'lang_id',
+        'name',
+        'gender',
+    ];
 
     public function lang(): BelongsTo
     {
