@@ -3,4 +3,5 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('gender') }}'><i class='nav-icon la la-question'></i> Genders</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('language') }}'><i class='nav-icon la la-question'></i> Languages</a></li>
 
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('tag') }}'><i class='nav-icon la la-question'></i> Tags</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('set-furniture') }}'><i class='nav-icon la la-question'></i> Set furnitures</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('user') }}'><i class='nav-icon la la-question'></i> Users</a></li>
