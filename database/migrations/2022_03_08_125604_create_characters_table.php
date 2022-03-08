@@ -20,6 +20,7 @@ class CreateCharactersTable extends Migration
             $table->string("iconImage")->nullable();
             $table->string("photoImage")->nullable();
             $table->unsignedBigInteger('gender_id')->nullable();
+            $table->unsignedBigInteger('lang_id')->nullable();
             $table->integer('birthday_day')->nullable();
             $table->string('birthday_month')->nullable();
             $table->timestamps();
@@ -27,6 +28,12 @@ class CreateCharactersTable extends Migration
             $table->foreign('gender_id')
                 ->references('id')
                 ->on('genders')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
+
+            $table->foreign('lang_id')
+                ->references('id')
+                ->on('languages_data')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
         });
