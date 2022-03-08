@@ -18,6 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = "https://dev-islandcrossing.vercel.app/";
+    public const HOME_BO = "admin";
 
     /**
      * The controller namespace for the application.
