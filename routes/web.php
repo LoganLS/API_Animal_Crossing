@@ -25,3 +25,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/token', function (Request $request) {
     return csrf_token();
 });
+Route::get('/user_token', function () {
+    if(Auth::guard('user')->user() !== null) {
+        return Auth::guard('user')->user()->api_token;
+    }
+    return false;
+});

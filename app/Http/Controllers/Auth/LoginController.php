@@ -60,6 +60,5 @@ class LoginController extends Controller
         }
 
         return json_encode(['success' => false]);
-
     }
 }
