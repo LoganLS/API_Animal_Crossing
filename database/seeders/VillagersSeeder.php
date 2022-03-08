@@ -95,6 +95,7 @@ class VillagersSeeder extends Seeder
         } else {
 
         }
+
         foreach ($villagerBDD['en'] as $villager) {
             Villager::create($villager);
         }
