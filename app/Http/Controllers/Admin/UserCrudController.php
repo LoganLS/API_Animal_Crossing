@@ -68,6 +68,7 @@ class UserCrudController extends CrudController
         CRUD::field('description');
         CRUD::field('email');
         CRUD::field('password');
+        CRUD::field('api_token');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
