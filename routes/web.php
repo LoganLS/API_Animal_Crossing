@@ -34,4 +34,4 @@ Route::get('/user_token', function () {
         return json_encode($user);
     }
     return false;
-});
+})->name('userToken');
