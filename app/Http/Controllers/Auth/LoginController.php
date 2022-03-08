@@ -75,8 +75,6 @@ class LoginController extends Controller
             return $response;
         }
 
-        return $request->wantsJson()
-            ? new JsonResponse(['success' => true], 204)
-            : redirect('/');
+        return json_encode(['success' => true]);
     }
 }
