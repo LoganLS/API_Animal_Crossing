@@ -11,3 +11,5 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('villager') }}'><i class='nav-icon la la-question'></i> Villagers</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('language') }}"><i class="nav-icon la la-flag-checkered"></i> Languages</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('language/texts') }}"><i class="nav-icon la la-language"></i> Site texts</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('music') }}'><i class='nav-icon la la-question'></i> Music</a></li>
