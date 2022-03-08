@@ -71,12 +71,12 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        if ($this->loggedOut($request)) {
-            return response()->json(['success' => true]);
+        if ($response = $this->loggedOut($request)) {
+            return $response;
         }
 
         return $request->wantsJson()
-            ? new JsonResponse([], 204)
+            ? new JsonResponse(['success' => true], 204)
             : redirect('/');
     }
 }
