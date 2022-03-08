@@ -14,11 +14,11 @@ class AddForeignKeys1ToVillagersTable extends Migration
     public function up()
     {
         Schema::table('villagers', function (Blueprint $table) {
-            $table->unsignedBigInteger('gender_id')->after('clothing')->nullable();;
-            $table->unsignedBigInteger('lang_id')->after('gender_id')->nullable();;
-            $table->unsignedBigInteger('sign_id')->after('lang_id')->nullable();;
-            $table->unsignedBigInteger('species_id')->after('sign_id')->nullable();;
-            $table->unsignedBigInteger('personality_id')->after('species_id')->nullable();;
+            $table->unsignedBigInteger('gender_id')->after('clothing')->nullable();
+            $table->unsignedBigInteger('lang_id')->after('gender_id')->nullable();
+            $table->unsignedBigInteger('sign_id')->after('lang_id')->nullable();
+            $table->unsignedBigInteger('species_id')->after('sign_id')->nullable();
+            $table->unsignedBigInteger('personality_id')->after('species_id')->nullable();
             $table->foreign('gender_id')
                 ->references('id')
                 ->on('genders')
