@@ -27,7 +27,11 @@ Route::get('/token', function (Request $request) {
 });
 Route::get('/user_token', function () {
     if(Auth::guard('user')->user() !== null) {
-        return Auth::guard('user')->user()->api_token;
+        $user = [
+            'id' => Auth::guard('user')->user()->id,
+            'api_token' => Auth::guard('user')->user()->api_token,
+        ];
+        return json_encode($user);
     }
     return false;
 });
