@@ -18,4 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->apiResource("users", "UserController");
+Route::middleware('auth:api')->apiResource("villagers", "VillagerController")->except(['store', 'destroy', 'update']);
+Route::middleware('auth:api')->apiResource("users", "UserController")->except(['store', 'destroy', 'update']);
