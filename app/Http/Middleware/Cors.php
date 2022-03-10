@@ -14,7 +14,9 @@ class Cors
         $response->header('Access-Control-Allow-Headers', $request->header('Access-Control-Request-Headers'));
         $response->header('Access-Control-Allow-Origin', '*');
 
-        dump($request);
+       if($request->getPathInfo() == '/login') {
+           dump($response);
+       }
 
         return $response;
     }
