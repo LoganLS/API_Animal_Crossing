@@ -61,7 +61,7 @@ class LoginController extends Controller
         if (Auth::guard('user')->attempt($credentials)) {
             session()->put('user',  Auth::guard('user')->user());
             session()->get('user');
-            dd(session()->get('user'));
+
             return json_encode(['success' => true]);
         }
 
