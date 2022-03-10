@@ -15,6 +15,8 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
+            dd($guard);
+
             switch ($guard) {
                 case 'backpack':
                     if (Auth::guard($guard)->check()) {
@@ -30,6 +32,6 @@ class RedirectIfAuthenticated
             }
         }
 
-        /*return $next($request);*/
+        return $next($request);
     }
 }
