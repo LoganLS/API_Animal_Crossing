@@ -13,7 +13,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     function getApiToken() {
-        dd(auth('user')->check());
+        dd(session()->all());
         if (Auth::guard('user')->user() !== null) {
             $user = [
                 'id' => Auth::guard('user')->user()->id,
