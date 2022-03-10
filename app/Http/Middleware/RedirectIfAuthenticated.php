@@ -15,15 +15,12 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            dd($guard);
-
             switch ($guard) {
                 case 'backpack':
                     if (Auth::guard($guard)->check()) {
                         return redirect(RouteServiceProvider::HOME);
                     }
                     break;
-
                 case 'user':
                     if (Auth::guard($guard)->check()) {
                         return redirect()->route('userToken');
