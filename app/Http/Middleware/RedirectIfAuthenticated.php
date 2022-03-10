@@ -33,7 +33,7 @@ class RedirectIfAuthenticated
             }
 
         }
-
-
+        dd($next($request));
+        return $next($request);
     }
 }
