@@ -21,6 +21,17 @@ Route::group([
         return csrf_token();
     });
     Auth::routes();
+    Route::get('user_token', function () {
+        if (Auth::guard('user')->user() !== null) {
+            $user = [
+                'id' => Auth::guard('user')->user()->id,
+                'api_token' => Auth::guard('user')->user()->api_token,
+            ];
+            dd($user);
+            return json_encode($user);
+        }
+        return false;
+    })->name('userToken');
 });
 
 Route::get('/', function () {
@@ -29,13 +40,4 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('api/user_token', function () {
-    if (Auth::guard('user')->user() !== null) {
-        $user = [
-            'id' => Auth::guard('user')->user()->id,
-            'api_token' => Auth::guard('user')->user()->api_token,
-        ];
-        return json_encode($user);
-    }
-    return false;
-})->name('userToken');
+
