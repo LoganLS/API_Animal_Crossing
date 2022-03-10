@@ -15,9 +15,12 @@ class VillagerController extends Controller
      */
     public function index(): JsonResponse
     {
-        $villagers = Villager::all();
+        $villagers = Villager::query()
+            ->leftJoin('languages_data', 'languages_data.id', '=', 'villagers.lang_id')
+            ->select('villagers.*', 'languages_data.*')
+            ->where('languages_data.name', 'fr');
 
-        return response()->json($villagers);
+        return response()->json($villagers->get());
     }
 
 
