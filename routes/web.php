@@ -13,22 +13,17 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group([
     'middleware' => ['cors'],
 ], function ($router) {
-
-    Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
-    Route::post('/login', 'Auth\LoginController@login');
-    /*Auth::routes();*/
-
+    Auth::routes();
     Route::get('/token', function (Request $request) {
         return csrf_token();
     });
+});
+
+Route::get('/', function () {
+    return view('welcome');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
