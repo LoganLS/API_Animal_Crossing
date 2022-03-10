@@ -24,10 +24,6 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             switch ($guard) {
                 case 'backpack':
-                    if (Auth::guard($guard)->check()) {
-                        return redirect(RouteServiceProvider::HOME);
-                    }
-                    break;
 
                 case 'user':
                     if (Auth::guard($guard)->check()) {
