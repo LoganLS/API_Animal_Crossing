@@ -43,8 +43,7 @@ class UserController extends Controller
      */
     public function show(Request $request)
     {
-        dd($request->all());
-        $user = User::where('api_token', '')->first();
+        $user = User::where('api_token', $request->get('api_token'))->first();
         $user = new UserResource($user);
 
         return response()->json($user);

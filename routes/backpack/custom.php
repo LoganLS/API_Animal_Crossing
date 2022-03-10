@@ -24,5 +24,4 @@ Route::group([
     Route::crud('sign', 'SignCrudController');
     Route::crud('personality', 'PersonalityCrudController');
     Route::crud('villager', 'VillagerCrudController');
-    Route::crud('music', 'MusicCrudController');
 }); // this should be the absolute last line of this file
