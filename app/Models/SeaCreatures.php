@@ -16,7 +16,7 @@ class SeaCreatures extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'fishes';
+    protected $table = 'sea_creatures';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
