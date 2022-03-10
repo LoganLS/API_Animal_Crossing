@@ -15,7 +15,6 @@ class CreateBugsTable extends Migration
     {
         Schema::create('bugs', function (Blueprint $table) {
             $table->id();
-
             $table->string('name');
             $table->string('url');
             $table->string('icon_url');

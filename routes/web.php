@@ -13,29 +13,25 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: *');
+header('Access-Control-Allow-Headers: *');
+
+Route::group([
+    'prefix' => 'api/',
+    'middleware' => ['cors']
+], function () {
+    Route::get('token', function (Request $request) {
+        return csrf_token();
+    });
+    Auth::routes();
+    Route::get('user_token', 'Controller@getApiToken')->name('userToken');
+});
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group([
-    'middleware' => ['cors'],
-], function ($router) {
-    Auth::routes();
-});
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/token', function (Request $request) {
-    return csrf_token();
-});
-Route::get('/user_token', function () {
-    if(Auth::guard('user')->user() !== null) {
-        $user = [
-            'id' => Auth::guard('user')->user()->id,
-            'api_token' => Auth::guard('user')->user()->api_token,
-        ];
-        return json_encode($user);
-    }
-    return false;
-})->name('userToken');
+

@@ -15,7 +15,6 @@ class CreateUsersBugsTable extends Migration
     {
         Schema::create('users_bugs', function (Blueprint $table) {
             $table->id();
-
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('bug_id')->constrained('bugs');
             $table->timestamps();
