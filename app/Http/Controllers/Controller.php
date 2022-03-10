@@ -20,6 +20,7 @@ class Controller extends BaseController
             ];
             return json_encode($user);
         }
+        dd('test');
         return false;
     }
 }
