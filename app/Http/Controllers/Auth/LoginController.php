@@ -44,25 +44,8 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(Request $request): JsonResponse
-    {
-        if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json([
-                'message' => 'Invalid login details'
-            ], 401);
-        }
 
-        $user = User::where('email', $request['email'])->firstOrFail();
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'Bearer',
-        ]);
-    }
-
-   /* public function login(Request $request)
+    public function login(Request $request)
     {
         $request->validate([
             'email' => 'required',
@@ -71,12 +54,18 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        if (Auth::guard('api')->attempt($credentials)) {
-            return json_encode(['success' => true]);
+        if (Auth::guard('user')->attempt($credentials)) {
+            $user = Auth::guard('user')->user();
+
+            $user->update([
+                'api_token' => $user->setApiTokenAttribute()
+            ]);
+
+            return json_encode(['success' => true, 'api_token' => $user->api_token]);
         }
 
         return json_encode(['success' => false, 'message' => __('validation.incorrect_credentials')]);
-    }*/
+    }
 
     public function logout(Request $request)
     {
