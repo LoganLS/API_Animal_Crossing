@@ -20,10 +20,11 @@ Route::group([
 Route::get('/token', function (Request $request) {
     return csrf_token();
 });
+    Auth::routes();
 });
 
 
-Auth::routes();
+
 
 Route::get('/', function () {
     return view('welcome');
