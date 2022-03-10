@@ -14,6 +14,8 @@ class FishesSeeder extends Seeder
      */
     public function run()
     {
+        Fishes::query()->delete();
+
         $fish1 = new Fishes();
         $fish1['id'] = 1;
         $fish1['name'] = 'Anchois';

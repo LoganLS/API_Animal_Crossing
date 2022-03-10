@@ -14,6 +14,8 @@ class SeaCreaturesSeeder extends Seeder
      */
     public function run()
     {
+        SeaCreatures::query()->delete();
+
         $seaCreature = new SeaCreatures();
         $seaCreature['id'] = 1;
         $seaCreature['name'] = 'Anémone de mer';
