@@ -48,10 +48,6 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'backpack' => [
-            'driver' => 'session',
-            'provider' => 'admins'
-        ]
     ],
 
     /*
