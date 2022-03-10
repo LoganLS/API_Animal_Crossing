@@ -19,13 +19,12 @@ header('Access-Control-Allow-Headers: *');
 
 Route::group([
     'prefix' => 'api/',
-    'middleware' => ['cors']
 ], function () {
     Route::get('token', function (Request $request) {
         return csrf_token();
     });
     Auth::routes();
-    Route::get('user_token', 'Controller@getApiToken')->name('userToken');
+    Route::post('login', 'UserController@login');
 });
 
 Route::get('/', function () {
