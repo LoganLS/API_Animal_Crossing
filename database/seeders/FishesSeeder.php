@@ -24,5 +24,6 @@ class FishesSeeder extends Seeder
         $fish1['image_url'] = 'https://www.animalcrossing-online.com/new-horizons-switch/img/poissons/Anchois.png';
         $fish1['price'] = '200';
         
+        Fishes::create($fish1);
     }
 }
