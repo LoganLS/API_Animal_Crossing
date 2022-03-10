@@ -16,10 +16,11 @@ class CreateFishesTable extends Migration
         Schema::create('fishes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->binary('image');
-            $table->json('months_apparition');
-            $table->json('hours_apparition');
-            $table->string('location');
+            $table->string('period');
+            $table->string('hours');
+            $table->string('place');
+            $table->string('size');
+            $table->string('image_url');
             $table->string('price');
             $table->timestamps();
         });
