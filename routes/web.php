@@ -16,8 +16,9 @@ use Illuminate\Http\Request;
 
 Route::group([
     'middleware' => ['cors'],
+    'prefix' => 'api/'
 ], function () {
-Route::get('/token', function (Request $request) {
+Route::get('token', function (Request $request) {
     return csrf_token();
 });
     Auth::routes();
@@ -29,7 +30,7 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/user_token', function () {
+Route::get('api/user_token', function () {
     if(Auth::guard('user')->user() !== null) {
         $user = [
             'id' => Auth::guard('user')->user()->id,
