@@ -16,10 +16,10 @@ use Illuminate\Http\Request;
 Route::group([
     'middleware' => ['cors'],
 ], function ($router) {
-    Auth::routes();
     Route::get('/token', function (Request $request) {
         return csrf_token();
     });
+    Auth::routes();
 });
 
 Route::get('/', function () {
