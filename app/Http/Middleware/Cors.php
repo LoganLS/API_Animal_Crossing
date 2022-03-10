@@ -10,10 +10,13 @@ class Cors
     public function handle($request, Closure $next)
     {
         $response = $next($request);
-        $response->header('Access-Control-Allow-Methods', 'HEAD, POST, PUT, DELETE');
+        $response->header('Access-Control-Allow-Methods', 'HEAD, GET, POST, PUT, DELETE');
         $response->header('Access-Control-Allow-Headers', $request->header('Access-Control-Request-Headers'));
         $response->header('Access-Control-Allow-Origin', '*');
 
+        if($request->getPathInfo() == '/login') {
+            dd($response);
+        };
         return $response;
     }
 }
