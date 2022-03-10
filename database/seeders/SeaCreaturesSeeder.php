@@ -27,7 +27,7 @@ class SeaCreaturesSeeder extends Seeder
         $seaCreature['price'] = '500';
         $seaCreature['movement'] = 'Immobile';
         
-        SeaCreatures::create($seaCreature);
+        $seaCreature->save();
 
         $seaCreature = new SeaCreatures();
         $seaCreature['id'] = 2;
@@ -40,7 +40,7 @@ class SeaCreaturesSeeder extends Seeder
         $seaCreature['price'] = '600';
         $seaCreature['movement'] = 'Immobile';
         
-        SeaCreatures::create($seaCreature);
+        $seaCreature->save();
 
         $seaCreature = new SeaCreatures();
         $seaCreature['id'] = 3;
@@ -53,7 +53,7 @@ class SeaCreaturesSeeder extends Seeder
         $seaCreature['price'] = '1000';
         $seaCreature['movement'] = 'Lent';
         
-        SeaCreatures::create($seaCreature);
+        $seaCreature->save();
 
         $seaCreature = new SeaCreatures();
         $seaCreature['id'] = 4;
@@ -66,7 +66,7 @@ class SeaCreaturesSeeder extends Seeder
         $seaCreature['price'] = '1400';
         $seaCreature['movement'] = 'Lent';
         
-        SeaCreatures::create($seaCreature);
+        $seaCreature->save();
 
         $seaCreature = new SeaCreatures();
         $seaCreature['id'] = 5;
@@ -79,7 +79,7 @@ class SeaCreaturesSeeder extends Seeder
         $seaCreature['price'] = '500';
         $seaCreature['movement'] = 'Très lent';
         
-        SeaCreatures::create($seaCreature);
+        $seaCreature->save();
 
         $seaCreature = new SeaCreatures();
         $seaCreature['id'] = 6;
@@ -92,7 +92,7 @@ class SeaCreaturesSeeder extends Seeder
         $seaCreature['price'] = '1900';
         $seaCreature['movement'] = 'Moyen';
         
-        SeaCreatures::create($seaCreature);
+        $seaCreature->save();
 
         $seaCreature = new SeaCreatures();
         $seaCreature['id'] = 1;
@@ -105,6 +105,6 @@ class SeaCreaturesSeeder extends Seeder
         $seaCreature['price'] = '6000';
         $seaCreature['movement'] = 'Rapide';
         
-        SeaCreatures::create($seaCreature);
+        $seaCreature->save();
     }
 }

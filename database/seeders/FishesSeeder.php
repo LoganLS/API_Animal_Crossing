@@ -26,7 +26,7 @@ class FishesSeeder extends Seeder
         $fish1['image_url'] = 'https://www.animalcrossing-online.com/new-horizons-switch/img/poissons/Anchois.png';
         $fish1['price'] = '200';
         
-        Fishes::create($fish1);
+        $fish1->save();
 
         $fish2 = new Fishes();
         $fish2['id'] = 2;
@@ -38,7 +38,7 @@ class FishesSeeder extends Seeder
         $fish2['image_url'] = 'https://www.animalcrossing-online.com/new-horizons-switch/img/poissons/Bar.png';
         $fish2['price'] = '400';
         
-        Fishes::create($fish2);
+        $fish2->save();
 
         $fish3 = new Fishes();
         $fish3['id'] = 3;
@@ -50,7 +50,7 @@ class FishesSeeder extends Seeder
         $fish3['image_url'] = 'https://www.animalcrossing-online.com/new-horizons-switch/img/poissons/Bar%20commun.png';
         $fish3['price'] = '400';
         
-        Fishes::create($fish1);
+        $fish3->save();
 
         $fish4 = new Fishes();
         $fish4['id'] = 4;
@@ -62,7 +62,7 @@ class FishesSeeder extends Seeder
         $fish4['image_url'] = 'https://www.animalcrossing-online.com/new-horizons-switch/img/poissons/Bouvi%C3%A8re.png';
         $fish4['price'] = '900';
         
-        Fishes::create($fish4);
+        $fish4->save();
 
         $fish5 = new Fishes();
         $fish5['id'] = 5;
@@ -74,7 +74,7 @@ class FishesSeeder extends Seeder
         $fish5['image_url'] = 'https://www.animalcrossing-online.com/new-horizons-switch/img/poissons/Calmar.png';
         $fish5['price'] = '500';
         
-        Fishes::create($fish5);
+        $fish5->save();
 
         $fish6 = new Fishes();
         $fish6['id'] = 6;
@@ -86,7 +86,7 @@ class FishesSeeder extends Seeder
         $fish6['image_url'] = 'https://www.animalcrossing-online.com/new-horizons-switch/img/poissons/Carassin.png';
         $fish6['price'] = '160';
         
-        Fishes::create($fish6);
+        $fish6->save();
 
         $fish7 = new Fishes();
         $fish7['id'] = 7;
@@ -98,6 +98,6 @@ class FishesSeeder extends Seeder
         $fish7['image_url'] = 'https://www.animalcrossing-online.com/new-horizons-switch/img/poissons/Cardeau.png';
         $fish7['price'] = '800';
         
-        Fishes::create($fish7);
+        $fish7->save();
     }
 }

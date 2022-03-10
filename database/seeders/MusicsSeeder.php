@@ -47,7 +47,7 @@ class MusicsSeeder extends Seeder
         $music['music_url'] = 'https://acnhapi.com/v1/music/1';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/1';
         
-        Music::create($music);
+        $music->save();
 
         $music = new Music();
         $music['id'] = 1;
@@ -57,7 +57,7 @@ class MusicsSeeder extends Seeder
         $music['music_url'] = 'https://acnhapi.com/v1/music/1';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/1';
         
-        Music::create($music);
+        $music->save();
 
         $music = new Music();
         $music['id'] = 2;
@@ -67,7 +67,7 @@ class MusicsSeeder extends Seeder
         $music['music_url'] = 'https://acnhapi.com/v1/music/3';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/3';
         
-        Music::create($music);
+        $music->save();
 
         $music = new Music();
         $music['id'] = 3;
@@ -77,7 +77,7 @@ class MusicsSeeder extends Seeder
         $music['music_url'] = 'https://acnhapi.com/v1/music/4';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/4';
         
-        Music::create($music);
+        $music->save();
 
         $music = new Music();
         $music['id'] = 4;
@@ -87,7 +87,7 @@ class MusicsSeeder extends Seeder
         $music['music_url'] = 'https://acnhapi.com/v1/music/1';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/1';
         
-        Music::create($music);
+        $music->save();
 
         $music = new Music();
         $music['id'] = 5;
@@ -97,7 +97,7 @@ class MusicsSeeder extends Seeder
         $music['music_url'] = 'https://acnhapi.com/v1/music/5';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/5';
         
-        Music::create($music);
+        $music->save();
 
         $music = new Music();
         $music['id'] = 6;
@@ -107,7 +107,7 @@ class MusicsSeeder extends Seeder
         $music['music_url'] = 'https://acnhapi.com/v1/music/6';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/6';
         
-        Music::create($music);
+        $music->save();
 
         $music = new Music();
         $music['id'] = 7;
@@ -117,7 +117,7 @@ class MusicsSeeder extends Seeder
         $music['music_url'] = 'https://acnhapi.com/v1/music/8';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/8';
         
-        Music::create($music);
+        $music->save();
 
         $music = new Music();
         $music['id'] = 8;
@@ -127,6 +127,6 @@ class MusicsSeeder extends Seeder
         $music['music_url'] = 'https://acnhapi.com/v1/music/9';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/9';
         
-        Music::create($music);
+        $music->save();
     }
 }
