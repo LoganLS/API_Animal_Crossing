@@ -18,7 +18,7 @@ class Controller extends BaseController
                 'id' => Auth::guard('user')->user()->id,
                 'api_token' => Auth::guard('user')->user()->api_token,
             ];
-            dd(Auth::guard('user')->user());
+            dd($user);
             return json_encode($user);
         }
 
