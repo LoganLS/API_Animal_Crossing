@@ -31,8 +31,7 @@ class RedirectIfAuthenticated
 
                 case 'user':
                     if (Auth::guard($guard)->check()) {
-                        dd(Auth::guard($guard)->check());
-                        /*return redirect()->route('userToken');*/
+                        return redirect()->route('userToken');
                     }
                     break;
             }
