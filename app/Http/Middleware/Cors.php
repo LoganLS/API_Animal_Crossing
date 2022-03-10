@@ -14,7 +14,7 @@ class Cors
         $response->header('Access-Control-Allow-Headers', $request->header('Access-Control-Request-Headers'));
         $response->header('Access-Control-Allow-Origin', '*');
 
-        dump($response);
+        dump($request);
 
         return $response;
     }
