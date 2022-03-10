@@ -18,7 +18,7 @@ class RedirectIfAuthenticated
             switch ($guard) {
                 case 'backpack':
                     if (Auth::guard($guard)->check()) {
-
+                        return redirect(RouteServiceProvider::HOME);
                     }
                     break;
                 case 'user':
