@@ -83,7 +83,7 @@ class LoginController extends Controller
                 $request->session()->put('auth.password_confirmed_at', time());
             }
 
-            return $this->sendLoginResponse($request);
+            return json_encode(['success' => true]);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
