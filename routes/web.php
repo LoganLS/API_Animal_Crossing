@@ -22,12 +22,12 @@ Route::group([
     });
     Auth::routes();
     Route::get('user_token', function () {
+        dd(Auth::check());
         if (Auth::guard('user')->user() !== null) {
             $user = [
                 'id' => Auth::guard('user')->user()->id,
                 'api_token' => Auth::guard('user')->user()->api_token,
             ];
-            dd($user);
             return json_encode($user);
         }
         return false;
