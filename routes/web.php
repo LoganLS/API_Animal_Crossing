@@ -21,7 +21,11 @@ Route::get('/', function () {
 Route::group([
     'middleware' => ['cors'],
 ], function ($router) {
-    Auth::routes();
+
+    Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Auth\LoginController@login');
+    /*Auth::routes();*/
+
     Route::get('/token', function (Request $request) {
         return csrf_token();
     });
