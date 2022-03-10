@@ -14,16 +14,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group([
+/*Route::group([
     'middleware' => ['cors'],
 ], function () {
-    Route::get('/token', function (Request $request) {
-        return csrf_token();
-    });
-    Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
-    Route::post('/login', 'Auth\LoginController@login');
-    Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+});*/
+
+Route::get('/token', function (Request $request) {
+    return csrf_token();
 });
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
