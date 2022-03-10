@@ -77,12 +77,10 @@ class LoginController extends Controller
         $this->clearLoginAttempts($request);
 
         if ($response = $this->authenticated($request, $this->guard()->user())) {
-            return $response;
+           dd('zeferf');
         }
 
-        return $request->wantsJson()
-            ? new JsonResponse(['success' => 'true'], 204)
-            : redirect()->intended($this->redirectPath());
+        return response()->json(['success' => 'true']);
     }
 
     protected function validateLogin(Request $request)
