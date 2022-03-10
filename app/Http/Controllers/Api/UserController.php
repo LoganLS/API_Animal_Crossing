@@ -41,8 +41,9 @@ class UserController extends Controller
      * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Request $request)
     {
+        $user = User::where('api_token', $request->get('api_token'))->first();
         $user = new UserResource($user);
 
         return response()->json($user);

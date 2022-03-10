@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -41,11 +44,6 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
 
     public function login(Request $request)
     {
@@ -57,10 +55,16 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('user')->attempt($credentials)) {
-            return json_encode(['success' => true]);
+            $user = Auth::guard('user')->user();
+
+            $user->update([
+                'api_token' => $user->setApiTokenAttribute()
+            ]);
+
+            return json_encode(['success' => true, 'api_token' => $user->api_token]);
         }
 
-        return json_encode(['success' => false]);
+        return json_encode(['success' => false, 'message' => __('validation.incorrect_credentials')]);
     }
 
     public function logout(Request $request)

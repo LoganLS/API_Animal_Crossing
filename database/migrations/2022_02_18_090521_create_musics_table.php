@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHasInsectsTable extends Migration
+class CreateMusicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateHasInsectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('has_insects', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('insect_id')->constrained('insects');
+        Schema::create('musics', function (Blueprint $table) {
+            $table->id();
+            $table->string('file-name');
+            $table->string('title');
+            $table->binary('audio');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateHasInsectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('has_insects');
+        Schema::dropIfExists('musics');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInsectsTable extends Migration
+class CreateUsersBugsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateInsectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('insects', function (Blueprint $table) {
+        Schema::create('users_bugs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->binary('image');
-            $table->json('months_apparition');
-            $table->json('hours_apparition');
-            $table->string('location');
-            $table->string('price');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('bug_id')->constrained('bugs');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateInsectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('insects');
+        Schema::dropIfExists('users_bugs');
     }
 }

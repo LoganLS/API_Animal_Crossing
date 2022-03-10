@@ -20,5 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:api')->apiResource("villagers", "VillagerController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("characters", "CharacterController")->except(['store', 'destroy', 'update']);
+<<<<<<< HEAD
 Route::middleware('auth:api')->apiResource("musics", "MusicController")->except(['store', 'destroy', 'update']);
+/*Route::middleware('auth:api')->apiResource("users", "UserController")->except(['store', 'destroy', 'update']);*/
+
+Route::middleware('auth:api')->get('me', 'UserController@show')->name('api.user.show');
+=======
 Route::middleware('auth:api')->apiResource("users", "UserController")->except(['store', 'destroy', 'update']);
+>>>>>>> parent of 3cc588d (FEAT(api) : musics)
