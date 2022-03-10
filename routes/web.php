@@ -15,7 +15,8 @@ use Illuminate\Http\Request;
 */
 
 Route::group([
-    'prefix' => 'api/'
+    'prefix' => 'api/',
+    'middleware' => ['cors']
 ], function () {
     Route::get('token', function (Request $request) {
         return csrf_token();
