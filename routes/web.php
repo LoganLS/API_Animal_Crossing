@@ -23,7 +23,6 @@ Route::group([
     });
     Auth::routes();
     Route::get('user_token', function () {
-        dd(Auth::check());
         if (Auth::guard('user')->user() !== null) {
             $user = [
                 'id' => Auth::guard('user')->user()->id,
