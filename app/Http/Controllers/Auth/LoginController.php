@@ -42,7 +42,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
+Ë
 
     public function login(Request $request)
     {
@@ -72,6 +72,21 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        if ($response = $this->authenticated($request, $this->guard()->user())) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse(['success' => 'true'], 204)
+            : redirect()->intended($this->redirectPath());
     }
 
     protected function validateLogin(Request $request)
