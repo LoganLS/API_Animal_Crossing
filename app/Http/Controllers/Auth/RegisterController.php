@@ -56,12 +56,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
+
     protected function create(array $data)
     {
         $user = User::create([
@@ -73,7 +68,11 @@ class RegisterController extends Controller
         $user->update([
             'api_token' => $user->setApiTokenAttribute()
         ]);
+        $token = $user->createToken('auth_token')->plainTextToken;
 
-        return $user;
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+        ]);
     }
 }
