@@ -6,7 +6,7 @@ use App\Models\Music;
 use App\Http\Requests\StoreMusicsRequest;
 use App\Http\Requests\UpdateMusicsRequest;
 
-class MusicsController extends Controller
+class MusicController extends Controller
 {
     /**
      * Display a listing of the resource.
