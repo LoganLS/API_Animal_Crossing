@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -44,7 +45,7 @@ class LoginController extends Controller
     /**
      * Write code on Method
      *
-     * @return response()
+     * @return response|false|string
      */
 
     public function login(Request $request)
@@ -60,7 +61,7 @@ class LoginController extends Controller
             return json_encode(['success' => true]);
         }
 
-        return json_encode(['success' => false]);
+        return json_encode(['success' => false, 'message' => __('validation.incorrect_credentials')]);
     }
 
     public function logout(Request $request)
