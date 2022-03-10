@@ -23,7 +23,8 @@ Route::group([
     Route::get('/token', function (Request $request) {
         return csrf_token();
     });
-    Auth::routes();
+    Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Auth\LoginController@login');
 });
 
 Route::get('/', function () {
