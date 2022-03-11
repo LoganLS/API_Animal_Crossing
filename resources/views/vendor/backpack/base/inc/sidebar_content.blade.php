@@ -9,5 +9,3 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('sign') }}'><i class='nav-icon la la-question'></i> Signs</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('personality') }}'><i class='nav-icon la la-question'></i> Personalities</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('villager') }}'><i class='nav-icon la la-question'></i> Villagers</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('language') }}"><i class="nav-icon la la-flag-checkered"></i> Languages</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('language/texts') }}"><i class="nav-icon la la-language"></i> Site texts</a></li>
