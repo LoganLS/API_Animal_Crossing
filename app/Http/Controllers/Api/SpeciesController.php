@@ -34,9 +34,9 @@ class SpeciesController extends Controller
     {
         $species = Species::query()
             ->leftJoin('languages_data', 'languages_data.id', '=', 'species.lang_id')
-            ->select('species.*', 'languages_data.name AS LangDataName')
-            ->where('languages_data.name', 'fr')->pluck('name', 'code');
+            ->select('species.code', 'species.name', 'languages_data.name AS LangDataName')
+            ->where('languages_data.name', 'fr');
 
-        return response()->json($species);
+        return response()->json($species->get());
     }
 }
