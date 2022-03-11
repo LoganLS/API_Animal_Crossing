@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Api\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\SetFurniture;
-use App\Http\Requests\StoreSetFurnitureRequest;
-use App\Http\Requests\UpdateSetFurnitureRequest;
 
 class SetFurnitureController extends Controller
 {
