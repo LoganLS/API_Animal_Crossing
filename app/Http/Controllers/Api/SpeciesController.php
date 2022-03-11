@@ -37,6 +37,6 @@ class SpeciesController extends Controller
             ->select('species.*', 'languages_data.name AS LangDataName')
             ->where('languages_data.name', 'fr')->pluck('name', 'code');
 
-        return response()->json($species->get());
+        return response()->json($species);
     }
 }
