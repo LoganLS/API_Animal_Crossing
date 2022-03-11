@@ -33,7 +33,7 @@ class InsectController extends Controller
      */
     public function show($id)
     {
-        $insect = Insect::where('id', $id)->get();
+        $insect = Insect::find($id);
 
         return response()->json($insect);
     }
