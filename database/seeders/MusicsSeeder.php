@@ -40,93 +40,84 @@ class MusicsSeeder extends Seeder
         }*/
 
         $music = new Music();
-        $music['id'] = 1;
         $music['name'] = 'Agent K.K.';
         $music['price'] = '3200';
         $music['sell_price'] = '800';
         $music['music_url'] = 'https://acnhapi.com/v1/music/1';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/1';
-        
+
         $music->save();
 
         $music = new Music();
-        $music['id'] = 1;
         $music['name'] = 'Agent K.K.';
         $music['price'] = '3200';
         $music['sell_price'] = '800';
         $music['music_url'] = 'https://acnhapi.com/v1/music/1';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/1';
-        
+
         $music->save();
 
         $music = new Music();
-        $music['id'] = 2;
         $music['name'] = 'À nous la belle ville';
         $music['price'] = '3200';
         $music['sell_price'] = '800';
         $music['music_url'] = 'https://acnhapi.com/v1/music/3';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/3';
-        
+
         $music->save();
 
         $music = new Music();
-        $music['id'] = 3;
         $music['name'] = 'Bubblegum K.K.';
         $music['price'] = '3200';
         $music['sell_price'] = '800';
         $music['music_url'] = 'https://acnhapi.com/v1/music/4';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/4';
-        
+
         $music->save();
 
         $music = new Music();
-        $music['id'] = 4;
         $music['name'] = 'Agent K.K.';
         $music['price'] = '3200';
         $music['sell_price'] = '800';
         $music['music_url'] = 'https://acnhapi.com/v1/music/1';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/1';
-        
+
         $music->save();
 
         $music = new Music();
-        $music['id'] = 5;
         $music['name'] = 'Café K.K.';
         $music['price'] = '3200';
         $music['sell_price'] = '800';
         $music['music_url'] = 'https://acnhapi.com/v1/music/5';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/5';
-        
+
         $music->save();
 
         $music = new Music();
-        $music['id'] = 6;
         $music['name'] = 'Tovaritch Kéké';
         $music['price'] = '3200';
         $music['sell_price'] = '800';
         $music['music_url'] = 'https://acnhapi.com/v1/music/6';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/6';
-        
+
         $music->save();
 
         $music = new Music();
-        $music['id'] = 7;
         $music['name'] = 'Sur la route';
         $music['price'] = '3200';
         $music['sell_price'] = '800';
         $music['music_url'] = 'https://acnhapi.com/v1/music/8';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/8';
-        
+
         $music->save();
 
         $music = new Music();
-        $music['id'] = 8;
         $music['name'] = 'Despedida';
         $music['price'] = '3200';
         $music['sell_price'] = '800';
         $music['music_url'] = 'https://acnhapi.com/v1/music/9';
         $music['image_url'] = 'https://acnhapi.com/v1/images/songs/9';
-        
+
         $music->save();
     }
 }
