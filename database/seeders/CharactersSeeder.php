@@ -35,6 +35,7 @@ class CharactersSeeder extends Seeder
                 $characterBDD['en'][$character->npcId]['gender_id'] = Gender::getGender('en', substr($character->gender, 0, 1))->id;
                 $characterBDD['en'][$character->npcId]['birthday_month'] = ucfirst($month);
                 $characterBDD['en'][$character->npcId]['birthday_day'] =  substr(strstr($character->birthday, '/'), 1);
+                $characterBDD['en'][$character->npcId]['description'] =  "My name is Mathieu";
                 $characterBDD['en'][$character->npcId]['lang_id'] = LanguageData::getEn()->id;
 
                 $month = Carbon::parse(DateTime::createFromFormat('!m', strstr($character->birthday, '/', true)))->locale('fr')->getTranslatedMonthName();
@@ -46,6 +47,7 @@ class CharactersSeeder extends Seeder
                 $characterBDD['fr'][$character->npcId]['gender_id'] = Gender::getGender('fr', substr($character->gender, 0, 1))->id;
                 $characterBDD['fr'][$character->npcId]['birthday_month'] = ucfirst($month);
                 $characterBDD['fr'][$character->npcId]['birthday_day'] = substr(strstr($character->birthday, '/'), 1);
+                $characterBDD['en'][$character->npcId]['description'] =  "Je m'appel Mathieu";
                 $characterBDD['fr'][$character->npcId]['lang_id'] = LanguageData::getFr()->id;
             }
         }
