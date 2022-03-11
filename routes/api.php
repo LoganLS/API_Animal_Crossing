@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::middleware('auth:api')->get('villagers/search', 'VillagerController@searchVillagers');
+Route::middleware('auth:api')->get('villagers/getnames', 'VillagerController@getVillagersName');
+Route::middleware('auth:api')->get('species/getnames', 'SpeciesController@getSpeciesName');
+Route::middleware('auth:api')->get('personalities/getnames', 'PersonnalityController@getPersonalitiesName');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

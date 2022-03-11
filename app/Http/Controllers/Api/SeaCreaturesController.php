@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\SeaCreatures;
-use App\Http\Requests\StoreSeaCreaturesRequest;
-use App\Http\Requests\UpdateSeaCreaturesRequest;
 
 class SeaCreaturesController extends Controller
 {

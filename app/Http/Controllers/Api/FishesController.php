@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Fishes;
-use App\Http\Requests\StoreFishesRequest;
-use App\Http\Requests\UpdateFishesRequest;
 
 class FishesController extends Controller
 {

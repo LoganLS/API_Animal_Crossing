@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Music;
-use App\Http\Requests\StoreMusicsRequest;
-use App\Http\Requests\UpdateMusicsRequest;
 
 class MusicController extends Controller
 {

@@ -50,18 +50,6 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param UserRequest $request
-     * @param User $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UserRequest $request, User $user)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param User $user
