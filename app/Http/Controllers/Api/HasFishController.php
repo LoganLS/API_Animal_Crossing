@@ -22,23 +22,20 @@ class HasFishController extends Controller
         return response()->json($hasfish);
     }
 
-    public function store(Request $request)
+    public function attachFishUser(Request $request)
     {
         $request->validate([
             'user_id' => 'required',
             'fish_id' => 'required'
         ]);
 
-        $hasfish = new HasFish([
+         HasFish::create([
             'user_id' => $request->get('user_id'),
             'fish_id' => $request->get('fish_id')
         ]);
 
-        $hasfish->save();
-
         return response()->json([
             'success' => true,
-            'hasfish' => $hasfish->id
         ]);
 
     }
@@ -46,9 +43,9 @@ class HasFishController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $userid
+     * @param int $userid
      * @param int $fishesid
-     * @param  \App\Models\HasFish  $hasFish
+     * @param \App\Models\HasFish $hasFish
      * @return \Illuminate\Http\Response
      */
     public function show($userid, $fishesid)
@@ -56,8 +53,7 @@ class HasFishController extends Controller
         $user = User::find($userid);
         $user->fishes()->where('fish_id', $fishesid);
 
-        if (count($user->get()) > 0)
-        {
+        if (count($user->get()) > 0) {
             return response()->json(['success' => true]);
         }
 
@@ -67,8 +63,8 @@ class HasFishController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\HasFish  $hasFish
-     * @param  int  $id
+     * @param \App\Models\HasFish $hasFish
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
 
