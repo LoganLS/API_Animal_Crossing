@@ -38,12 +38,7 @@ class InsectController extends Controller
 
         return response()->json($userInsects);
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         $insect = Insect::find($id);
