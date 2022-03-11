@@ -46,9 +46,9 @@ class VillagerController extends Controller
         $villagers = Villager::query();
         $requestSearch = $request->all();
 
-        $filters['name'] = $requestSearch['name'] ?? null;
-        $filters['species'] = $requestSearch['species'] ?? null;
-        $filters['personalities'] = $requestSearch['personalities'] ?? null;
+        $filters['name'] = $requestSearch['name'] !== '' ?  $requestSearch['name'] : null;
+        $filters['species'] = $requestSearch['species'] !== '' ?  $requestSearch['species'] : null;
+        $filters['personalities'] = $requestSearch['personalities'] !== '' ?  $requestSearch['personalities'] : null;
 
         $villagers = $villagers
             ->select('villagers.*', 'languages_data.name AS LangDataName')
