@@ -28,6 +28,7 @@ class User extends Authenticatable
         'email',
         'password',
         'api_token',
+        'set_furniture_id'
     ];
 
     /**
