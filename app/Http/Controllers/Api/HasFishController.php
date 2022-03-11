@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Fishes;
 use App\Models\HasFish;
-use App\Http\Requests\StoreHasFishRequest;
-use App\Http\Requests\UpdateHasFishRequest;
+use Illuminate\Http\Request;
 use App\Models\User;
 
 class HasFishController extends Controller
@@ -23,13 +22,7 @@ class HasFishController extends Controller
         return response()->json($hasfish);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreHasFishRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreHasFishRequest $request)
+    public function store(Request $request)
     {
         $request->validate([
             'user_id' => 'required',
@@ -40,6 +33,7 @@ class HasFishController extends Controller
             'user_id' => $request->get('user_id'),
             'fish_id' => $request->get('fish_id')
         ]);
+
         $hasfish->save();
 
         return response()->json([
@@ -77,6 +71,8 @@ class HasFishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function destroy($id)
     {
         $hashfish = HasFish::find($id);

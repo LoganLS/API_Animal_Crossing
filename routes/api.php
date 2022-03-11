@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('villagers/getnames', 'VillagerController@get
 Route::middleware('auth:api')->get('species/getnames', 'SpeciesController@getSpeciesName');
 Route::middleware('auth:api')->get('personalities/getnames', 'PersonnalityController@getPersonalitiesName');
 Route::middleware('auth:api')->get('villagers-anniversary-today', 'VillagerController@getVillagersAnniversary');
+Route::middleware('auth:api')->post('has-fish', 'HasFish@store');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -29,7 +30,7 @@ Route::middleware('auth:api')->apiResource("musics", "MusicController")->except(
 Route::middleware('auth:api')->apiResource("fishes", "FishesController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("insects", "InsectController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("sea_creatures", "SeaCreaturesController")->except(['store', 'destroy', 'update']);
-Route::middleware('auth:api')->apiResource("hash_fish", "HasFishController");
+Route::middleware('auth:api')->apiResource("has_fish", "HasFishController");
 
 /*Route::middleware('auth:api')->apiResource("users", "UserController")->except(['store', 'destroy', 'update']);*/
 

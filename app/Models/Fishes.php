@@ -65,6 +65,6 @@ class Fishes extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'has_fishes');
+        return $this->belongsToMany(User::class, 'has_fishes', 'fish_id');
     }
 }
