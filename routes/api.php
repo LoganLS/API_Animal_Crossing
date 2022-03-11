@@ -28,6 +28,8 @@ Route::middleware('auth:api')->apiResource("musics", "MusicController")->except(
 Route::middleware('auth:api')->apiResource("fishes", "FishesController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("insects", "InsectController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("sea_creatures", "SeaCreaturesController")->except(['store', 'destroy', 'update']);
+Route::middleware('auth:api')->apiResource("hash_fish", "HasFishController");
+
 /*Route::middleware('auth:api')->apiResource("users", "UserController")->except(['store', 'destroy', 'update']);*/
 
 Route::middleware('auth:api')->get('me', 'UserController@show')->name('api.user.show');
