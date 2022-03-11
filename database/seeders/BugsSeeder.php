@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Insect;
 use App\Models\LanguageData;
 use App\Models\Music;
 use Illuminate\Database\Seeder;
@@ -16,7 +17,7 @@ class BugsSeeder extends Seeder
      */
     public function run()
     {
-       /* Music::query()->delete();*/
+        Insect::query()->delete();
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -33,14 +34,43 @@ class BugsSeeder extends Seeder
 
         $bugs = json_decode(curl_exec($curl));
         $bugs = new Collection($bugs);
+
         foreach ($bugs as $bug) {
-            $songsBDD['en'][$bug->name]['name'] = $bug->name;
-            $songsBDD['en'][$bug->name]['url'] = $bug->url;
-            $songsBDD['en'][$bug->name]['icon_url'] = $bug->image_url;
-            $songsBDD['en'][$bug->name]['image_url'] = $bug->render_url;
-            $songsBDD['en'][$bug->name]['image_url'] = $bug->render_url;
-            $songsBDD['en'][$bug->name]['catchphrase'] = $bug->render_url;
-            $songsBDD['fr'][$bug->name]['lang_id'] = LanguageData::getEn()->id;
+            $bugsBDD['en'][$bug->name]['name'] = $bug->name;
+            $bugsBDD['en'][$bug->name]['url'] = $bug->url;
+            $bugsBDD['en'][$bug->name]['icon_url'] = $bug->image_url;
+            $bugsBDD['en'][$bug->name]['image_url'] = $bug->render_url;
+            $bugsBDD['en'][$bug->name]['catchphrase'] = $bug->catchphrase;
+            $bugsBDD['en'][$bug->name]['catchphrase2'] = $bug->catchphrase2;
+            $bugsBDD['en'][$bug->name]['location'] = $bug->location;
+            $bugsBDD['en'][$bug->name]['rarity'] = $bug->rarity;
+            $bugsBDD['en'][$bug->name]['total_catch'] = $bug->total_catch;
+            $bugsBDD['en'][$bug->name]['sell_nook'] = $bug->sell_nook;
+            $bugsBDD['en'][$bug->name]['sell_flick'] = $bug->sell_flick;
+            $bugsBDD['en'][$bug->name]['tank_width'] = $bug->tank_width;
+            $bugsBDD['en'][$bug->name]['tank_length'] = $bug->tank_length;
+            $bugsBDD['en'][$bug->name]['time'] = $bug->time;
+            $bugsBDD['en'][$bug->name]['n_availability'] = $bug->n_availability;
+            $bugsBDD['en'][$bug->name]['s_availability'] = $bug->s_availability;
+
+            $bugsBDD['fr'][$bug->name]['name'] = $bug->name;
+            $bugsBDD['fr'][$bug->name]['url'] = $bug->url;
+            $bugsBDD['fr'][$bug->name]['icon_url'] = $bug->image_url;
+            $bugsBDD['fr'][$bug->name]['image_url'] = $bug->render_url;
+            $bugsBDD['fr'][$bug->name]['catchphrase'] = $bug->catchphrase;
+            $bugsBDD['fr'][$bug->name]['catchphrase2'] = $bug->catchphrase2;
+            $bugsBDD['fr'][$bug->name]['location'] = $bug->location;
+            $bugsBDD['fr'][$bug->name]['rarity'] = $bug->rarity;
+            $bugsBDD['fr'][$bug->name]['total_catch'] = $bug->total_catch;
+            $bugsBDD['fr'][$bug->name]['sell_nook'] = $bug->sell_nook;
+            $bugsBDD['fr'][$bug->name]['sell_flick'] = $bug->sell_flick;
+            $bugsBDD['fr'][$bug->name]['tank_width'] = $bug->tank_width;
+            $bugsBDD['fr'][$bug->name]['tank_length'] = $bug->tank_length;
+            $bugsBDD['fr'][$bug->name]['time'] = $bug->time;
+            $bugsBDD['fr'][$bug->name]['n_availability'] = $bug->n_availability;
+            $bugsBDD['fr'][$bug->name]['s_availability'] = $bug->s_availability;
+
+            $bugsBDD['fr'][$bug->name]['lang_id'] = LanguageData::getEn()->id;
         }
         $err = curl_error($curl);
 
@@ -51,13 +81,12 @@ class BugsSeeder extends Seeder
         } else {
 
         }
-
-        foreach ($songsBDD['en'] as $song) {
-            Music::create($song);
+        foreach ($bugsBDD['en'] as $bug) {
+            Insect::create($bug);
         }
 
-        foreach ($songsBDD['fr'] as $song) {
-            Music::create($song);
+        foreach ($bugsBDD['fr'] as $bug) {
+            Insect::create($bug);
         }
     }
 }

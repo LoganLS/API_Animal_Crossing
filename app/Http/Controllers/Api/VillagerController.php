@@ -36,7 +36,10 @@ class VillagerController extends Controller
      */
     public function show($id): JsonResponse
     {
-        $villager = Villager::find($id);
+        $villager = Villager::where('id', $id)
+            ->with('species')
+            ->with('gender')
+            ->with('personality')->get();
 
         return response()->json($villager);
     }

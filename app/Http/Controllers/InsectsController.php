@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Insects;
+use App\Models\Insect;
 use App\Http\Requests\StoreInsectsRequest;
 use App\Http\Requests\UpdateInsectsRequest;
 
@@ -42,10 +42,10 @@ class InsectsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Insects  $insects
+     * @param  \App\Models\Insect  $insects
      * @return \Illuminate\Http\Response
      */
-    public function show(Insects $insects)
+    public function show(Insect $insects)
     {
         //
     }
@@ -53,10 +53,10 @@ class InsectsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Insects  $insects
+     * @param  \App\Models\Insect  $insects
      * @return \Illuminate\Http\Response
      */
-    public function edit(Insects $insects)
+    public function edit(Insect $insects)
     {
         //
     }
@@ -65,10 +65,10 @@ class InsectsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateInsectsRequest  $request
-     * @param  \App\Models\Insects  $insects
+     * @param  \App\Models\Insect  $insects
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateInsectsRequest $request, Insects $insects)
+    public function update(UpdateInsectsRequest $request, Insect $insects)
     {
         //
     }
@@ -76,10 +76,10 @@ class InsectsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Insects  $insects
+     * @param  \App\Models\Insect  $insects
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Insects $insects)
+    public function destroy(Insect $insects)
     {
         //
     }

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Insects;
+use App\Models\Insect;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class InsectsPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Insects  $insects
+     * @param  \App\Models\Insect  $insects
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Insects $insects)
+    public function view(User $user, Insect $insects)
     {
         //
     }
@@ -48,10 +48,10 @@ class InsectsPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Insects  $insects
+     * @param  \App\Models\Insect  $insects
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Insects $insects)
+    public function update(User $user, Insect $insects)
     {
         //
     }
@@ -60,10 +60,10 @@ class InsectsPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Insects  $insects
+     * @param  \App\Models\Insect  $insects
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Insects $insects)
+    public function delete(User $user, Insect $insects)
     {
         //
     }
@@ -72,10 +72,10 @@ class InsectsPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Insects  $insects
+     * @param  \App\Models\Insect  $insects
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Insects $insects)
+    public function restore(User $user, Insect $insects)
     {
         //
     }
@@ -84,10 +84,10 @@ class InsectsPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Insects  $insects
+     * @param  \App\Models\Insect  $insects
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Insects $insects)
+    public function forceDelete(User $user, Insect $insects)
     {
         //
     }
