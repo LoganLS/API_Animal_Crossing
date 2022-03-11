@@ -59,7 +59,7 @@ class VillagerController extends Controller
             ->with('gender');
 
         if ($filters['name'] !== null) {
-            $villagers->where('villagers.name', 'LIKE', $filters['name']);
+            $villagers->where('villagers.code', 'LIKE', $filters['name']);
         }
         if ($filters['species'] !== null) {
             $villagers
