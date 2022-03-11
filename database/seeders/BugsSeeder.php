@@ -36,7 +36,6 @@ class BugsSeeder extends Seeder
         $bugs = new Collection($bugs);
 
         foreach ($bugs as $bug) {
-            dump($bug->name);
             $bugsBDD['en'][$bug->name]['name'] = $bug->name;
             $bugsBDD['en'][$bug->name]['url'] = $bug->url;
             $bugsBDD['en'][$bug->name]['icon_url'] = $bug->image_url;
@@ -53,25 +52,6 @@ class BugsSeeder extends Seeder
             $bugsBDD['en'][$bug->name]['time'] = $bug->time;
             $bugsBDD['en'][$bug->name]['n_availability'] = $bug->n_availability;
             $bugsBDD['en'][$bug->name]['s_availability'] = $bug->s_availability;
-
-            $bugsBDD['fr'][$bug->name]['name'] = $bug->name;
-            $bugsBDD['fr'][$bug->name]['url'] = $bug->url;
-            $bugsBDD['fr'][$bug->name]['icon_url'] = $bug->image_url;
-            $bugsBDD['fr'][$bug->name]['image_url'] = $bug->render_url;
-            $bugsBDD['fr'][$bug->name]['catchphrase'] = $bug->catchphrase;
-            $bugsBDD['fr'][$bug->name]['catchphrase2'] = $bug->catchphrase2;
-            $bugsBDD['fr'][$bug->name]['location'] = $bug->location;
-            $bugsBDD['fr'][$bug->name]['rarity'] = $bug->rarity;
-            $bugsBDD['fr'][$bug->name]['total_catch'] = $bug->total_catch;
-            $bugsBDD['fr'][$bug->name]['sell_nook'] = $bug->sell_nook;
-            $bugsBDD['fr'][$bug->name]['sell_flick'] = $bug->sell_flick;
-            $bugsBDD['fr'][$bug->name]['tank_width'] = $bug->tank_width;
-            $bugsBDD['fr'][$bug->name]['tank_length'] = $bug->tank_length;
-            $bugsBDD['fr'][$bug->name]['time'] = $bug->time;
-            $bugsBDD['fr'][$bug->name]['n_availability'] = $bug->n_availability;
-            $bugsBDD['fr'][$bug->name]['s_availability'] = $bug->s_availability;
-
-            $bugsBDD['fr'][$bug->name]['lang_id'] = LanguageData::getEn()->id;
         }
         die();
         $err = curl_error($curl);
@@ -87,8 +67,5 @@ class BugsSeeder extends Seeder
             Insect::create($bug);
         }
 
-        foreach ($bugsBDD['fr'] as $bug) {
-            Insect::create($bug);
-        }
     }
 }

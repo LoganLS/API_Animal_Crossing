@@ -11,6 +11,25 @@ class Insect extends Model
     use HasFactory;
 
     protected $table = 'bugs';
+    protected $fillable = [
+        'name',
+        'url',
+        'icon_url',
+        'image_url',
+        'catchphrase',
+        'catchphrase2',
+        'location',
+        'rarity',
+        'total_catch',
+        'sell_nook',
+        'sell_flick',
+        'tank_width',
+        'tank_length',
+        'time',
+        'n_availability',
+        's_availability',
+        'lang_id',
+    ];
 
     public function lang(): BelongsTo
     {
