@@ -36,6 +36,7 @@ class BugsSeeder extends Seeder
         $bugs = new Collection($bugs);
 
         foreach ($bugs as $bug) {
+            dump($bug->name);
             $bugsBDD['en'][$bug->name]['name'] = $bug->name;
             $bugsBDD['en'][$bug->name]['url'] = $bug->url;
             $bugsBDD['en'][$bug->name]['icon_url'] = $bug->image_url;
@@ -72,6 +73,7 @@ class BugsSeeder extends Seeder
 
             $bugsBDD['fr'][$bug->name]['lang_id'] = LanguageData::getEn()->id;
         }
+        die();
         $err = curl_error($curl);
 
         curl_close($curl);

@@ -17,6 +17,7 @@ Route::middleware('auth:api')->get('villagers/search', 'VillagerController@searc
 Route::middleware('auth:api')->get('villagers/getnames', 'VillagerController@getVillagersName');
 Route::middleware('auth:api')->get('species/getnames', 'SpeciesController@getSpeciesName');
 Route::middleware('auth:api')->get('personalities/getnames', 'PersonnalityController@getPersonalitiesName');
+Route::middleware('auth:api')->get('villagers-anniversary-today', 'VillagerController@getVillagersAnniversary');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

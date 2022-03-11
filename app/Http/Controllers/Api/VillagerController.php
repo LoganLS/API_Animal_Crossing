@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\LanguageData;
 use App\Models\Villager;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -49,9 +51,9 @@ class VillagerController extends Controller
         $villagers = Villager::query();
         $requestSearch = $request->all();
 
-        $filters['name'] = $requestSearch['name'] !== '' ?  $requestSearch['name'] : null;
-        $filters['species'] = $requestSearch['species'] !== '' ?  $requestSearch['species'] : null;
-        $filters['personalities'] = $requestSearch['personalities'] !== '' ?  $requestSearch['personalities'] : null;
+        $filters['name'] = $requestSearch['name'] !== '' ? $requestSearch['name'] : null;
+        $filters['species'] = $requestSearch['species'] !== '' ? $requestSearch['species'] : null;
+        $filters['personalities'] = $requestSearch['personalities'] !== '' ? $requestSearch['personalities'] : null;
 
         $villagers = $villagers
             ->select('villagers.*', 'languages_data.name AS LangDataName')
@@ -87,6 +89,42 @@ class VillagerController extends Controller
             ->select('villagers.name', 'villagers.code', 'languages_data.name AS LangDataName')
             ->where('languages_data.name', 'fr');
 
-            return response()->json($villagers->get());
+        return response()->json($villagers->get());
+    }
+
+    public function getVillagersAnniversary()
+    {
+        Carbon::setLocale('en');
+
+        $currentDateDay = now()->day;
+        $currentDateMonth = now()->getTranslatedMonthName();
+
+        $villagers = Villager::query()
+            ->leftJoin('languages_data', 'languages_data.id', '=', 'villagers.lang_id')
+            ->select('villagers.name', 'villagers.image_url', 'languages_data.name AS LangDataName')
+            ->where('languages_data.name', 'fr');
+
+        $villagers = $villagers
+            ->where('birthday_day', $currentDateDay)
+            ->where('birthday_month',  ucfirst($currentDateMonth))->get();
+
+       return response()->json($villagers);
+    }
+
+    function months()
+    {
+        return [
+            'January' => 'Janvier',
+            'February' => 'Février',
+            'March' => 'Mars',
+            'April' => 'Avril',
+            'May' => 'Mai',
+            'June' => 'Juin',
+            'July' => 'Juillet',
+            'August' => 'Août',
+            'September' => 'Septembre',
+            'November' => 'Novembre',
+            'December' => 'Décembre',
+        ];
     }
 }
