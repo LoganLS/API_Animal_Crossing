@@ -81,10 +81,9 @@ class VillagerController extends Controller
     {
         $villagers = Villager::query()
             ->leftJoin('languages_data', 'languages_data.id', '=', 'villagers.lang_id')
-            ->select('villagers.*', 'languages_data.name AS LangDataName')
+            ->select('villagers.name', 'villagers.code', 'languages_data.name AS LangDataName')
             ->where('languages_data.name', 'fr');
 
-
-            return response()->json($villagers);
+            return response()->json($villagers->get());
     }
 }
