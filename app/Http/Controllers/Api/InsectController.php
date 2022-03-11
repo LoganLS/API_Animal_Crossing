@@ -23,11 +23,6 @@ class InsectController extends Controller
             ->leftJoin('languages_data', 'languages_data.id', '=', 'bugs.lang_id')
             ->where('languages_data.name', LanguageData::getEn()->name)->get();
 
-        $user = User::where('api_token', $request->get('api_token'))->first();
-
-        foreach ($insects as $insect) {
-            $insect->hasInsect = count($user->insects()->where('insect_id', $insect->id)->get()) > 0 ? true : false;
-        }
         return response()->json($insects);
     }
 
