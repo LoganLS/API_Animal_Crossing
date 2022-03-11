@@ -35,4 +35,9 @@ class Insect extends Model
     {
         return $this->belongsTo(LanguageData::class, 'lang_id');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'has_insects', 'user_id', );
+    }
 }

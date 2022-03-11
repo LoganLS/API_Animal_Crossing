@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Fishes::class, 'has_fishes', 'user_id', 'fish_id');
     }
+
+    public function insects()
+    {
+        return $this->belongsToMany(Insect::class, 'has_insects', 'user_id', 'insect_id');
+    }
 }
