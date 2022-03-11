@@ -26,6 +26,14 @@ class FishesController extends Controller
         return response()->json($fishes);
     }
 
+    public function getFishesUser(Request $request)
+    {
+        $user = User::where('api_token', $request->get('api_token'))->first();
+        $userFishes = $user->fishes;
+
+        return response()->json($userFishes);
+    }
+
     /**
      * Display the specified resource.
      *
