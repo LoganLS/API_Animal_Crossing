@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Fishes;
 use App\Models\HasFish;
 use App\Http\Requests\StoreHasFishRequest;
 use App\Http\Requests\UpdateHasFishRequest;
+use App\Models\User;
 
 class HasFishController extends Controller
 {
@@ -50,15 +52,22 @@ class HasFishController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $userid
+     * @param int $fishesid
      * @param  \App\Models\HasFish  $hasFish
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($userid, $fishesid)
     {
-        $hashfish = HasFish::find($id);
+        $user = User::find($userid);
+        $user->fishes()->where('fish_id', $fishesid);
 
-        return response()->json($hashfish);
+        if (count($user->get()) > 0)
+        {
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false]);
     }
 
     /**

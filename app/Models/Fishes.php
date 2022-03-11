@@ -62,4 +62,9 @@ class Fishes extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'has_fishes');
+    }
 }
