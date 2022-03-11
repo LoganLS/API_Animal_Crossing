@@ -52,8 +52,9 @@ class BugsSeeder extends Seeder
             $bugsBDD['en'][$bug->name]['time'] = $bug->time;
             $bugsBDD['en'][$bug->name]['n_availability'] = $bug->n_availability;
             $bugsBDD['en'][$bug->name]['s_availability'] = $bug->s_availability;
+            $bugsBDD['en'][$bug->name]['lang_id'] = LanguageData::getEn()->id;
         }
-        die();
+
         $err = curl_error($curl);
 
         curl_close($curl);
