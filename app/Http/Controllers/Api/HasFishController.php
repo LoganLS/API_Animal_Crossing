@@ -29,7 +29,7 @@ class HasFishController extends Controller
             'fish_id' => 'required'
         ]);
 
-         HasFish::create([
+        HasFish::create([
             'user_id' => $request->get('user_id'),
             'fish_id' => $request->get('fish_id')
         ]);
@@ -69,9 +69,9 @@ class HasFishController extends Controller
      */
 
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $hashfish = HasFish::find($id);
+        $hashfish = HasFish::where('user_id', $request->get('user_id'))->where('fish_id', $request->get('fish_id'));
         $hashfish->delete();
 
         return response()->json(['success' => true]);
