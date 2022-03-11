@@ -41,7 +41,8 @@ class HasInsectController extends Controller
 
     public function detachInsectUser(Request $request)
     {
-        $hasinsect = HasInsect::where('user_id', $request->get('user_id'))->where('insect_id', $request->get('insect_id'));
+        $hasinsect = HasInsect::where('user_id', $request->get('user_id'))
+            ->where('insect_id', $request->get('insect_id'));
         $hasinsect->delete();
 
         return response()->json(['success' => true]);
