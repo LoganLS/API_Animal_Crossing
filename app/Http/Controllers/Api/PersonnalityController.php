@@ -37,6 +37,6 @@ class PersonnalityController extends Controller
             ->select('personalities.*', 'languages_data.name AS LangDataName')
             ->where('languages_data.name', 'fr')->pluck('name', 'code');
 
-        return response()->json($personalities);
+        return response()->json($personalities->get());
     }
 }

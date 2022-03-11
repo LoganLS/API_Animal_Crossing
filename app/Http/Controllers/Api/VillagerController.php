@@ -84,6 +84,6 @@ class VillagerController extends Controller
             ->select('villagers.*', 'languages_data.name AS LangDataName')
             ->where('languages_data.name', 'fr')->pluck('name', 'code');
 
-        return response()->json($villagers);
+        return response()->json($villagers->get());
     }
 }
