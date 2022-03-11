@@ -69,7 +69,7 @@ class HasFishController extends Controller
      */
 
 
-    public function destroy(Request $request)
+    public function detachFishUser(Request $request)
     {
         $hashfish = HasFish::where('user_id', $request->get('user_id'))->where('fish_id', $request->get('fish_id'));
         $hashfish->delete();
