@@ -41,7 +41,7 @@ class VillagerController extends Controller
         $villager = Villager::where('id', $id)
             ->with('species')
             ->with('gender')
-            ->with('personality')->get();
+            ->with('personality')->first();
 
         return response()->json($villager);
     }
