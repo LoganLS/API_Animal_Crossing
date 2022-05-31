@@ -33,7 +33,8 @@ class CharacterController extends Controller
      */
     public function show($id)
     {
-        $character = Character::find($id);
+        $character = Character::where('id', $id)
+            ->with('gender')->first();
 
         return response()->json($character);
     }
