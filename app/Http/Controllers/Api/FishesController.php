@@ -46,4 +46,35 @@ class FishesController extends Controller
 
         return response()->json($fish);
     }
+
+    public function searchFishes(Request $request)
+    {
+        $fishes = Fishes::query();
+        $requestSearch = $request->all();
+        $user = User::where('api_token', $request->get('api_token'))->first();
+
+        $filters['name'] = $requestSearch['name'] !== '' ? $requestSearch['name'] : null;
+        $filters['hasFish'] = $requestSearch['hasFish'] !== '' ? $requestSearch['hasFish'] : null;
+
+        $fishes = $fishes
+            ->select('fishes.*');
+
+        if ($filters['name'] !== null) {
+            $fishes->where('fishes.name', 'LIKE', $filters['name']);
+        }
+        if ($filters['hasFish'] !== null) {
+            $fishes
+                ->leftJoin('has_fishes', 'has_fishes.fish_id', '=', 'fishes.id')
+                ->where('has_fishes.user_id', '=', $user->id)
+                ;
+        }
+
+        $fishes = $fishes->get();
+
+        foreach ($fishes as $fish) {
+            $fish->hasFish = count($user->fishes()->where('fish_id', $fish->id)->get()) > 0 ? true : false;
+        }
+
+        return response()->json($fishes);
+    }
 }

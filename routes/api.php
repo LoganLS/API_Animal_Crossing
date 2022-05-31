@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('species/getnames', 'SpeciesController@getSpe
 Route::middleware('auth:api')->get('personalities/getnames', 'PersonnalityController@getPersonalitiesName');
 Route::middleware('auth:api')->get('villagers-anniversary-today', 'VillagerController@getVillagersAnniversary');
 
+Route::middleware('auth:api')->get('fishes/search', 'FishesController@searchFishes');
 Route::middleware('auth:api')->get('user-fishes', 'FishesController@getFishesUser');
 Route::middleware('auth:api')->post('has-fish-user', 'HasFishController@attachFishUser');
 Route::middleware('auth:api')->delete('has-fish-user-remove', 'HasFishController@detachFishUser');
