@@ -27,6 +27,10 @@ Route::middleware('auth:api')->get('user-insects', 'InsectController@getInsectsU
 Route::middleware('auth:api')->post('has-insect-user', 'HasInsectController@attachInsectUser');
 Route::middleware('auth:api')->delete('has-insects-user-remove', 'HasInsectController@detachInsectUser');
 
+Route::middleware('auth:api')->get('user-sea-creatures', 'SeaCreaturesController@getSeaCreaturesUser');
+Route::middleware('auth:api')->post('has-sea-creature-user', 'HasSeaCreatureController@attachSeaCreatureUser');
+Route::middleware('auth:api')->delete('has-sea-creature-user-remove', 'HasSeaCreatureController@detachSeaCreatureUser');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
