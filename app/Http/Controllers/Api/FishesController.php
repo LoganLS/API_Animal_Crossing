@@ -78,7 +78,7 @@ class FishesController extends Controller
             $fishes->whereNotIn('id', $fishes_acquired);
         }
         if ($filters['period'] !== null) {
-            $fishes->where('fishes.period', 'LIKE', $filters['period']);
+            $fishes->where('fishes.period', 'LIKE', '%' . $filters['period'] .'%');
         }
 
 
