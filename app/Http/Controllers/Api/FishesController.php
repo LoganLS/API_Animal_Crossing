@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Fishes;
+use App\Models\HasFish;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -62,11 +63,18 @@ class FishesController extends Controller
         if ($filters['name'] !== null) {
             $fishes->where('fishes.name', 'LIKE', $filters['name']);
         }
-        if ($filters['hasFish'] !== null) {
+        if ($filters['hasFish'] === "true") {
             $fishes
                 ->leftJoin('has_fishes', 'has_fishes.fish_id', '=', 'fishes.id')
                 ->where('has_fishes.user_id', '=', $user->id)
                 ;
+        } else if($filters['hasFish'] === "false") {
+            $fishes_acquired = HasFish::query();
+            $fishes_acquired = $fishes_acquired
+                ->select('has_fishes.fish_id')
+                ->where('has_fishes.user_id', '=', $user->id);
+
+            $fishes->whereNotIn('id', $fishes_acquired);
         }
 
         $fishes = $fishes->get();
