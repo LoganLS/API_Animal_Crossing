@@ -55,6 +55,7 @@ class FishesController extends Controller
 
         $filters['name'] = $requestSearch['name'] !== '' ? $requestSearch['name'] : null;
         $filters['hasFish'] = $requestSearch['hasFish'] !== '' ? $requestSearch['hasFish'] : null;
+        $filters['period'] = $requestSearch['period'] !== '' ? $requestSearch['period'] : null;
 
         $fishes = $fishes
             ->select('fishes.*');
@@ -68,6 +69,10 @@ class FishesController extends Controller
                 ->where('has_fishes.user_id', '=', $user->id)
                 ;
         }
+        if ($filters['period'] !== null) {
+            $fishes->where('fishes.period', 'LIKE', $filters['period']);
+        }
+
 
         $fishes = $fishes->get();
 
