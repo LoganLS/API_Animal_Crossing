@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MusicsSeeder::class);
         $this->call(FishesSeeder::class);
         $this->call(SeaCreaturesSeeder::class);
+        $this->call(SetFurnituresSeeder::class);
     }
 }
