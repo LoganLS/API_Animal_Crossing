@@ -63,4 +63,31 @@ class UserController extends Controller
         // On retourne la réponse JSON
         return response()->json();
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateUser(Request $request)
+    {
+        $validated = $request->validate([
+            'username'=>"max:15",
+            "description"=>"nullable|min:10"
+        ]);
+        // On update l'utilisateur
+        $user = $request->user();
+        if(isset($validated["username"])){
+                $user->username = $validated["username"];
+        }
+        if(isset($validated["description"])){
+            $user->description = $validated["description"];
+        }
+        if(isset($validated["favoriteSerie"])){
+            $user->set_furniture_id = $validated["favoriteSerie"];
+        }
+        
+        // On retourne la réponse JSON
+        return response()->json($user);
+    }
 }
