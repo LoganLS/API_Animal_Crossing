@@ -35,6 +35,7 @@ Route::middleware('auth:api')->delete('has-sea-creature-user-remove', 'HasSeaCre
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::middleware("auth:api")->put("update","UserController@updateUser");
 
 Route::middleware('auth:api')->apiResource("villagers", "VillagerController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("characters", "CharacterController")->except(['store', 'destroy', 'update']);
