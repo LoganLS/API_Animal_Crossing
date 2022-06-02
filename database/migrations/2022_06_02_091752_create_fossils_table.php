@@ -16,7 +16,12 @@ class CreateFossilsTable extends Migration
         Schema::create('fossils', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->binary('image');
+            $table->string('price');
+            $table->string('image_url');
+            $table->string('fossil_group');
+            $table->double('width');
+            $table->double('length');
+
             $table->timestamps();
         });
     }

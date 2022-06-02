@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\FossilsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
 Route::middleware('auth:api')->get('villagers/search', 'VillagerController@searchVillagers');
 Route::middleware('auth:api')->get('villagers/getnames', 'VillagerController@getVillagersName');
 Route::middleware('auth:api')->get('species/getnames', 'SpeciesController@getSpeciesName');
@@ -32,16 +34,19 @@ Route::middleware('auth:api')->get('user-sea-creatures', 'SeaCreaturesController
 Route::middleware('auth:api')->post('has-sea-creature-user', 'HasSeaCreatureController@attachSeaCreatureUser');
 Route::middleware('auth:api')->delete('has-sea-creature-user-remove', 'HasSeaCreatureController@detachSeaCreatureUser');
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware('auth:api')->apiResource("fossils", 'FossilsController')->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("villagers", "VillagerController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("characters", "CharacterController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("musics", "MusicController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("fishes", "FishesController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("insects", "InsectController")->except(['store', 'destroy', 'update']);
 Route::middleware('auth:api')->apiResource("sea_creatures", "SeaCreaturesController")->except(['store', 'destroy', 'update']);
+
 Route::middleware('auth:api')->apiResource("has_fish", "HasFishController");
 Route::middleware('auth:api')->apiResource("set_furnitures", "SetFurnitureController");
 

@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Api;
 use App\Models\Fossils;
-use App\Http\Requests\StoreFossilsRequest;
-use App\Http\Requests\UpdateFossilsRequest;
+
+use App\Http\Controllers\Controller;
 
 class FossilsController extends Controller
 {
@@ -15,7 +14,10 @@ class FossilsController extends Controller
      */
     public function index()
     {
-        //
+        $Fossils = Fossils::all();
+
+        // On retourne les informations des fossiles en JSON
+        return response()->json($Fossils);
     }
 
     /**
@@ -34,10 +36,7 @@ class FossilsController extends Controller
      * @param  \App\Http\Requests\StoreFossilsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFossilsRequest $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
@@ -68,10 +67,6 @@ class FossilsController extends Controller
      * @param  \App\Models\Fossils  $fossils
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFossilsRequest $request, Fossils $fossils)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -83,4 +78,6 @@ class FossilsController extends Controller
     {
         //
     }
+
+
 }
