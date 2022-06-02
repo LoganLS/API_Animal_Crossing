@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
+use App\Models\Fossils;
 
-use App\Models\HasInsect;
-use App\Http\Requests\StoreHasInsectRequest;
-use App\Http\Requests\UpdateHasInsectRequest;
+use App\Http\Controllers\Controller;
 
-class HasInsectController extends Controller
+class FossilsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,10 @@ class HasInsectController extends Controller
      */
     public function index()
     {
-        //
+        $Fossils = Fossils::all();
+
+        // On retourne les informations des fossiles en JSON
+        return response()->json($Fossils);
     }
 
     /**
@@ -31,21 +33,18 @@ class HasInsectController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreHasInsectRequest  $request
+     * @param  \App\Http\Requests\StoreFossilsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreHasInsectRequest $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\HasInsect  $hasInsect
+     * @param  \App\Models\Fossils  $fossils
      * @return \Illuminate\Http\Response
      */
-    public function show(HasInsect $hasInsect)
+    public function show(Fossils $fossils)
     {
         //
     }
@@ -53,10 +52,10 @@ class HasInsectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\HasInsect  $hasInsect
+     * @param  \App\Models\Fossils  $fossils
      * @return \Illuminate\Http\Response
      */
-    public function edit(HasInsect $hasInsect)
+    public function edit(Fossils $fossils)
     {
         //
     }
@@ -64,23 +63,21 @@ class HasInsectController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateHasInsectRequest  $request
-     * @param  \App\Models\HasInsect  $hasInsect
+     * @param  \App\Http\Requests\UpdateFossilsRequest  $request
+     * @param  \App\Models\Fossils  $fossils
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateHasInsectRequest $request, HasInsect $hasInsect)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\HasInsect  $hasInsect
+     * @param  \App\Models\Fossils  $fossils
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HasInsect $hasInsect)
+    public function destroy(Fossils $fossils)
     {
         //
     }
+
+
 }
