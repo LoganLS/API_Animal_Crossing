@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PublicationsFactory extends Factory
@@ -14,7 +16,10 @@ class PublicationsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->title(),
+            'content' => $this->faker->paragraphs(3),
+            'category_id' => Category::all()->random(1)[0]->id,
+            'user_id' => User::all()->random(1)[0]->id,
         ];
     }
 }
