@@ -17,6 +17,9 @@ class Fossils extends Model
         'name',
         'image_url',
         'prix',
+        'fossil_group',
+        'width',
+        'length'
     ];
 
     public function users()
