@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Insect;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class HasInsectFactory extends Factory
@@ -14,7 +16,8 @@ class HasInsectFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => User::all()->random(1)[0]->id,
+            'insect_id' => Insect::all()->random(1)[0]->id,
         ];
     }
 }
